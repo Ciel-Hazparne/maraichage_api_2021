@@ -14,10 +14,8 @@ ainsi que la production de piment d’Espelette :
 - Pilotage d’un système de ventilation via un automate programmable préexistant 
 - Enregistrement des mesures dans une base de données. 
 - Archivage, affichage et gestion d’informations liées aux évolutions des grandeurs physiques
-## 1.2-Analyse de l’existant
+### 1.2-Analyse de l’existant
 Pas d’installation existante, mis à part le système de ventilation piloté par API Unitronics.
-
----
 
 ### 1.3 - Expression du besoin
 Les exploitants agricoles qui travaillent dans le domaine maraîchage ont des besoins
