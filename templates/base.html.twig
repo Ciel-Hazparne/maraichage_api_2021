@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Bienvenue!{% endblock %}</title>
+
+    <link rel="stylesheet" href="https://bootswatch.com/4/spacelab/bootstrap.min.css">
+
+    {% block stylesheets %}{% endblock %}
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand">API REST</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <p>&nbsp&nbsp&nbsp&nbsp</p>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+
+{#Bouton pour retourner à la page d'accueil#}
+
+            <li class="nav-item active">
+                <button class="btn btn-info" content type="submit"><a class="nav-link" href="{{ path('start') }}">Home </a></button>
+
+            <li class="nav-item">
+                    <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</p>
+{#Bouton pour aller voir les mesures#}
+
+            <li class="nav-item active">
+                {% if app.user %}
+                <button class="btn btn-info" type="submit">  <a class="nav-link" style="color: #fbfcfc" href="{{ path('mesures_index') }}">Mesures </a></button>
+                {%  else %}
+                <button class="btn btn-info" type="submit">  <a class="nav-link" style="color: #fbfcfc" href="{{ path('app_login') }}">Mesures </a></button>
+                {%  endif %}
+
+            <li class="nav-item">
+        </ul>
+                {% if app.user %}
+
+                <form class="form-inline">
+
+                    <button class="btn btn-info" type="submit"> <a style="color: #fbfcfc" class ="nav-link" href="{{ path('app_logout') }}">Déconnexion</a></button>
+                   <pre><FONT size ="3pt">  {{ app.user.username }}</pre></FONT>
+                </form>
+                {%  else %}
+                    <button class="btn btn-info" type="submit"> <a  style="color: #fbfcfc" class="nav-link" href="{{ path('app_login') }}">Connexion</a></button>
+
+            </li>
+            {%  endif %}
+
+    </div>
+</nav>
+<body>
+{% block body %}
+{% endblock %}
+</body>
+</html>

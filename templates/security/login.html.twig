@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Identification{% endblock %}
+
+{% block body %}
+    <br><br>
+    <div class ="container lg-1">
+    <table class ="table table-secondary table-hover" width="100%">
+        <thead>
+        <tbody>
+
+<form method="post">
+    {% if error %}
+       <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+
+
+   <th> <h1 class="h3 mb-3 font-weight-normal">Veuillez vous identifier</h1>
+    <label for="inputUsername">Nom d'utilisateur</label><br>
+    <input size="40" type="text" value="{{ last_username }}" name="username" id="inputUsername" required autofocus><br><br>
+    <label for="inputPassword">Mot de Passe</label>
+       <br>
+    <input size="40" type="password" name="password" id="inputPassword" required>
+<br>
+       <div align="right">
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+
+    {#
+       Décommenter pour la fonction "remember me"
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
+        </div>
+    #}
+
+    <button type="submit" class="btn  btn-info" >
+        Se connecter
+    </button>
+       </div>
+</form>
+</th>
+        </tbody>
+        </thead>
+    </table>
+    </div>
+{% endblock %}

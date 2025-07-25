@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mesures index{% endblock %}
+
+{% block body %}
+{#  On affiche toute les données reçues #}
+    <br>
+ <div class="container">
+     <h1> Valeurs reçues : </h1>
+
+    <table class="table table-secondary">
+        <thead>
+        <tr>
+            <th><h4 class="text-warning">Identifiant</h4></th>
+            <th><h4 class="text-warning">Libelle</h4></th>
+            <th><h4 class="text-warning">Valeur</h4></th>
+            <th>&emsp;<h4 class="text-warning">Heure</h4></th>
+            <th><h4 class="text-warning">Actions</h4></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for mesure in mesures %}
+            <tr>
+
+                <td><p>&emsp;</p><h4 class="text-dark"> &emsp;&emsp;{{ mesure.id }}<br><br></td></h4>
+                <td><p>&emsp;</p><h4 class="text-dark"> {{ mesure.libelle }}</td></h4>
+                <td><p>&emsp;</p><h4 class="text-dark">&emsp;{{ mesure.valeur }}</td></h4>
+                <td><p>&emsp;</p><h4 class="text-dark" size="10">{{ mesure.createdAt ? mesure.createdAt|date('Y-m-d H:i') : '' }}</td></p>
+                <td>
+                    <a href="{{ path('mesures_show', {'id': mesure.id}) }}">
+                        <button type="button" class="btn btn-primary">Voir</button>
+                    </a>
+                   <br>
+                    <a href="{{ path('mesures_edit', {'id': mesure.id}) }}">
+                        <button type="button" class="btn btn-primary">Modifier</button>
+                    </a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Pas de données</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+     <div class="pagination page-link">
+         {{ knp_pagination_render(mesures) }}
+     </div>
+ </div>
+{% endblock %}

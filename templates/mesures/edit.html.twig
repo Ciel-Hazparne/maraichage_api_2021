@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editer les Mesures{% endblock %}
+
+{% block body %}
+
+{#  permet de modifier la table existant #}
+<div class="container">
+
+    <h1 >Editer les Mesures</h1>
+
+    <tr>{{ include('mesures/_form.html.twig', {'button_label': 'Mettre à jour'}) }}</tr>
+
+    <button type="button" class="btn btn-primary"><a href="{{ path('mesures_index') }}">retour à la liste</a></button>
+
+    {{ include('mesures/_delete_form.html.twig') }}
+
+</div>
+
+{% endblock %}
