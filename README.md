@@ -40,10 +40,12 @@ Les piments d’Espelette doivent sécher à l’air libre avant de passer au fo
 ---
 
 ## 2 - Partie personnelle Kévin
-Dans cette partie du projet, il faut récupérer les données des différents brokers. Les données sont celles d’une serre,
+Dans cette partie du projet, je dois récupérer les données des différents brokers. Les données sont celles d’une serre,
 dans laquelle une carte arduino dispose d’un capteur de température et d’humidité qui envoie ces données à un
-micro-ordinateur raspberry. Il y a aussi celles d’un champ où grâce aux capteurs, l’humidité et la température sont envoyées
+micro-ordinateur raspberry.  
+Il y a aussi celles d’un champ où grâce aux capteurs, l’humidité et la température sont envoyées
 par la liaison LoRaWan sur le site d’Objenious. Les brokers peuvent ensuite choisir où les envoyer afin de les stocker
-dans une base de données. Nous pourrons y avoir accès depuis une interface web où il faudra s’y authentifier pour y accéder
-afin de consulter / modifier / supprimer les données.
-Afin de ne pas prendre trop d’espace de stockage, les données devront être supprimées à la fin du mois.
+dans une base de données.  
+Nous pourrons y avoir accès depuis une interface web qui nécessitera une authentification pour consulter / modifier / 
+supprimer les données.  
+Afin de ne pas prendre trop d’espace de stockage, les données seront être supprimées automatiquement à la fin du mois.
